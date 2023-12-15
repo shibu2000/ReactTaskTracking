@@ -142,7 +142,7 @@ const MainBody = () => {
           </form>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div className="border-r p-3">
+          <div className="border-r p-3 sm:p-0">
             <h1 className="md:text-2xl text-center border-b p-2">
               Pending Task
             </h1>

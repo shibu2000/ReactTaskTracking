@@ -4,7 +4,7 @@ import { MdDeleteOutline } from "react-icons/md";
 
 const CompletedTaskDetails = ({ task, taskUndo, completeTaskDelete }) => {
   return (
-    <div className="inputGoup pl-10 md:pl-3 font-mono p-2 text-sm md:text-xl flex justify-between border-b">
+    <div className="inputGoup  md:pl-3 font-mono p-2 text-sm md:text-xl flex justify-between border-b">
       <label htmlFor={task.id} className="p-2 break-words overflow-auto">
         {task.data}
       </label>

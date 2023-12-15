@@ -3,8 +3,8 @@ import { MdDeleteOutline } from "react-icons/md";
 
 const TaskDetails = ({ task, taskCompleted,pendingTaskDelete }) => {
   return (
-    <div className="flex md:text-xl border-b">
-      <div className="inputGoup pl-10 md:pl-3 font-mono p-2 overflow-hidden flex-1 flex">
+    <div className="flex text-sm md:text-xl border-b font-mono">
+      <div className="inputGoup md:pl-3 font-mono p-2 overflow-hidden flex-1 flex">
         <div className="">
           <input
             type="checkbox"
