@@ -173,7 +173,6 @@ const Contact = () => {
             <div className="formGroup mb-3">
               <label className="block text-xl mb-3">Subject:</label>
               <input
-                required
                 type="text"
                 name="subject"
                 className="w-full h-10 rounded-xl p-1 border bg-slate-50 focus:outline-slate-400 text-black"
