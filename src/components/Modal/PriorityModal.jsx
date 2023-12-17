@@ -12,7 +12,7 @@ const PriorityModal = ({
   return (
     <div
       className={`absolute top-0 left-0 w-full h-screen `}
-      style={{ backgroundColor: "rgba(60, 72, 88, 0.1)" }}
+      style={{ backdropFilter:"blur(2px)" }}
     >
       <div
         className="border absolute top-7 bg-slate-600 p-4 text-md rounded-md"
