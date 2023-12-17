@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, createContext } from "react";
 import { ThemeContext, ThemeToggle } from "../App";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import TaskDetails from "./TaskDetails";
 import CompletedTaskDetails from "./CompletedTaskDetails";
+import PriorityModal from "./Modal/PriorityModal";
 
 const MainBody = () => {
   //================context============
@@ -18,6 +19,10 @@ const MainBody = () => {
 
   //state variable for completed tasks
   const [completedTaskArray, setCompletedTaskArray] = useState([]);
+
+  const [priorityModal, setPriorityModal] = useState(false);
+
+  const [priorityTask, setPriorityTask] = useState({});
 
   var date = new Date();
 
@@ -58,6 +63,26 @@ const MainBody = () => {
       ]);
       setTaskData("");
     }
+  };
+
+  const changePriority = (index) => {
+    // let y = x.slice(0, index);
+    // y = y.concat(key);
+    // let p = x.slice(index);
+    // let res = y.concat(p);
+    // console.log(index, task);
+    // console.log(taskArray);
+
+    let newTaskArray = taskArray.filter((element) => {
+      return element != priorityTask;
+    });
+
+    let tmpTaskArray = newTaskArray.slice(0, index);
+    tmpTaskArray = tmpTaskArray.concat(priorityTask);
+    let tmpTaskArray2 = newTaskArray.slice(index);
+    setTaskArray(tmpTaskArray.concat(tmpTaskArray2));
+
+    setPriorityModal(false);
   };
 
   const taskCompleted = async (task) => {
@@ -142,7 +167,7 @@ const MainBody = () => {
           </form>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div className="border-r p-3 sm:p-0">
+          <div className="border-r md:p-3 sm:p-0">
             <h1 className="md:text-2xl text-center border-b p-2">
               Pending Task
             </h1>
@@ -153,6 +178,8 @@ const MainBody = () => {
                   task={task}
                   taskCompleted={taskCompleted}
                   pendingTaskDelete={pendingTaskDelete}
+                  setPriorityModal={setPriorityModal}
+                  setPriorityTask={setPriorityTask}
                 />
               );
             })}
@@ -174,6 +201,15 @@ const MainBody = () => {
           </div>
         </div>
       </div>
+      {priorityModal ? (
+        <PriorityModal
+          setPriorityModal={setPriorityModal}
+          changePriority={changePriority}
+          taskArrayLength={taskArray.length}
+        />
+      ) : (
+        ""
+      )}
     </main>
   );
 };
