@@ -1,0 +1,41 @@
+@keyframes slideToDown {
+  0% {
+    top: -1rem;
+  }
+  100% {
+    top: 0.25rem;
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    right: -1rem;
+  }
+  100% {
+    right: 0.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #notificationBox {
+    top: 0.25rem;
+    right: 0.25rem;
+    animation: slideToLeft 0.5s ease;
+  }
+  .card60 {
+    width: 100%;
+    padding:0 3rem 0 3rem;
+  }
+}
+
+@media (min-width: 767px) {
+  #notificationBox {
+    top: 0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideDown 0.5s;
+  }
+  .card60 {
+    width: 60%;
+  }
+}
